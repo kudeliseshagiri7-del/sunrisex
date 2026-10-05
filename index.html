@@ -1,0 +1,1081 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SunRiseX - Real-Time Sunrise and Sunset Simulator"
+    >
+
+    <title>SunRiseX | Sunrise & Sunset Simulator</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Earth CSS -->
+    <link rel="stylesheet" href="earth.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+    <div
+    id="solarSystemBackground"
+    class="solar-system-background">
+</div>
+
+    <header class="header">
+
+        <div class="logo">
+            ☀️ SunRiseX
+        </div>
+
+
+        <nav class="navbar">
+
+            <a href="#home">Home</a>
+            
+            <a href="#notes">Notes</a>
+
+            <a href="#explore">Explore</a>
+
+            <a href="#simulation">Simulation</a>
+
+            <a href="#science">Science</a>
+
+            <a href="#about">About</a>
+
+        </nav>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
+    <main>
+
+        <section
+            class="hero"
+            id="home"
+        >
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    🌍 REAL-TIME SOLAR SCIENCE
+                </div>
+
+
+                <h1>
+
+                    Discover the Science Behind
+
+                    <span>
+                        Sunrise & Sunset
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Explore how Earth's rotation creates
+                    day and night and discover real-time
+                    sunrise and sunset information for
+                    any location on Earth.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary-btn"
+                        id="startExploringBtn"
+                    >
+
+                        🌅 Start Exploring
+
+                    </button>
+
+
+                    <button
+                        class="secondary-btn"
+                        id="learnScienceBtn"
+                    >
+
+                        🧠 Learn the Science
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+
+            <div class="hero-solar-system">
+
+                <div class="sun-glow">
+
+                    ☀️
+
+                </div>
+
+
+                <div class="earth-orbit">
+
+                    <div class="earth-small">
+
+                        🌍
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             EXPLORE SECTION
+        ========================================== -->
+
+        <section
+            class="explore-section section"
+            id="explore"
+        >
+
+            <div class="section-heading">
+
+                <span>
+                    📍 EXPLORE
+                </span>
+
+                <h2>
+                    Discover Sunrise & Sunset
+                </h2>
+
+                <p>
+                    Search for any location and get
+                    real-time solar information.
+                </p>
+
+            </div>
+
+
+
+            <!-- Location Search -->
+
+            <div class="location-search">
+
+                <input
+                    type="text"
+                    id="locationInput"
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    class="primary-btn"
+                    id="searchBtn"
+                >
+
+                    🔎 Search
+
+                </button>
+
+
+                <button
+                    class="location-btn"
+                    id="myLocationBtn"
+                >
+
+                    📍 My Location
+
+                </button>
+
+            </div>
+
+
+            <!-- Selected Location -->
+
+            <div
+                class="selected-location"
+                id="selectedLocation"
+            >
+
+                <span>
+                    🌍
+                </span>
+
+                <strong id="locationName">
+                    No location selected
+                </strong>
+
+            </div>
+
+
+
+            <!-- Solar Cards -->
+
+            <div class="solar-cards">
+
+
+                <!-- Sunrise -->
+
+                <article class="solar-card sunrise-card">
+
+                    <div class="card-icon">
+                        🌅
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Sunrise
+                        </h3>
+
+                        <p
+                            id="sunriseTime"
+                            class="solar-value"
+                        >
+                            --:--
+                        </p>
+
+                        <small>
+                            Local Time
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Sunset -->
+
+                <article class="solar-card sunset-card">
+
+                    <div class="card-icon">
+                        🌇
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Sunset
+                        </h3>
+
+                        <p
+                            id="sunsetTime"
+                            class="solar-value"
+                        >
+                            --:--
+                        </p>
+
+                        <small>
+                            Local Time
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Day Length -->
+
+                <article class="solar-card">
+
+                    <div class="card-icon">
+                        ☀️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Day Length
+                        </h3>
+
+                        <p
+                            id="dayLength"
+                            class="solar-value"
+                        >
+                            --:--
+                        </p>
+
+                        <small>
+                            Total Daylight
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- Solar Noon -->
+
+                <article class="solar-card">
+
+                    <div class="card-icon">
+                        🕛
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Solar Noon
+                        </h3>
+
+                        <p
+                            id="solarNoon"
+                            class="solar-value"
+                        >
+                            --:--
+                        </p>
+
+                        <small>
+                            Sun Highest Point
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Day/Night Status -->
+
+            <div
+                class="day-status"
+                id="dayStatus"
+            >
+
+                <div class="status-icon">
+                    🌍
+                </div>
+
+                <div>
+
+                    <span>
+                        CURRENT STATUS
+                    </span>
+
+                    <h3 id="statusText">
+                        Waiting for location...
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             3D SIMULATION SECTION
+        ========================================== -->
+
+        <section
+            class="simulation-section section"
+            id="simulation"
+        >
+
+            <div class="section-heading">
+
+                <span>
+                    🌍 3D SIMULATION
+                </span>
+
+                <h2>
+                    Watch Earth Rotate
+                </h2>
+
+                <p>
+                    See how Earth's rotation creates
+                    day, night, sunrise and sunset.
+                </p>
+
+            </div>
+
+
+            <!-- 3D Earth Container -->
+
+            <div
+                class="earth-container"
+                id="earthContainer"
+            >
+
+                <!-- Three.js canvas will appear here -->
+
+                <div
+                    class="earth-loading"
+                    id="earthLoading"
+                >
+
+                    🌍
+
+                    <p>
+                        Loading Earth...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Simulation Controls -->
+
+            <div class="simulation-controls">
+
+
+                <button
+                    id="rotateBtn"
+                    class="control-btn"
+                >
+
+                    ▶ Start Rotation
+
+                </button>
+
+
+                <button
+                    id="pauseBtn"
+                    class="control-btn"
+                >
+
+                    ⏸ Pause
+
+                </button>
+
+
+                <button
+                    id="resetEarthBtn"
+                    class="control-btn"
+                >
+
+                    🔄 Reset
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- Simulation Status -->
+
+            <div class="simulation-status">
+
+                <div>
+
+                    <span>
+                        EARTH
+                    </span>
+
+                    <strong>
+                        🌍 Rotating
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        SUN
+                    </span>
+
+                    <strong>
+                        ☀️ Fixed
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        DAY/NIGHT
+                    </span>
+
+                    <strong id="simulationStatus">
+                        Calculating...
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             SCIENCE SECTION
+        ========================================== -->
+
+        <section
+            class="science-section section"
+            id="science"
+        >
+
+            <div class="section-heading">
+
+                <span>
+                    🧠 THE SCIENCE
+                </span>
+
+                <h2>
+                    Why Does Sunrise & Sunset Happen?
+                </h2>
+
+                <p>
+                    The answer is Earth's rotation.
+                </p>
+
+            </div>
+
+
+
+            <div class="science-grid">
+
+
+                <!-- Step 1 -->
+
+                <article class="science-card">
+
+                    <div class="science-number">
+                        01
+                    </div>
+
+                    <div class="science-icon">
+                        🌍
+                    </div>
+
+                    <h3>
+                        Earth Rotates
+                    </h3>
+
+                    <p>
+                        Earth continuously rotates around
+                        its own axis.
+                    </p>
+
+                </article>
+
+
+
+                <!-- Step 2 -->
+
+                <article class="science-card">
+
+                    <div class="science-number">
+                        02
+                    </div>
+
+                    <div class="science-icon">
+                        ☀️
+                    </div>
+
+                    <h3>
+                        Sunlight Reaches Earth
+                    </h3>
+
+                    <p>
+                        The side of Earth facing the Sun
+                        receives sunlight.
+                    </p>
+
+                </article>
+
+
+
+                <!-- Step 3 -->
+
+                <article class="science-card">
+
+                    <div class="science-number">
+                        03
+                    </div>
+
+                    <div class="science-icon">
+                        🌅
+                    </div>
+
+                    <h3>
+                        Sunrise
+                    </h3>
+
+                    <p>
+                        As a location rotates into sunlight,
+                        sunrise occurs.
+                    </p>
+
+                </article>
+
+
+
+                <!-- Step 4 -->
+
+                <article class="science-card">
+
+                    <div class="science-number">
+                        04
+                    </div>
+
+                    <div class="science-icon">
+                        🌇
+                    </div>
+
+                    <h3>
+                        Sunset
+                    </h3>
+
+                    <p>
+                        As a location rotates away from
+                        sunlight, sunset occurs.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Simple Explanation -->
+
+            <div class="science-explanation">
+
+                <h3>
+                    🌎 In Simple Words
+                </h3>
+
+                <p>
+
+                    The Sun appears to rise in the east and
+                    set in the west because Earth rotates
+                    from west to east.
+
+                    When your location rotates into sunlight,
+                    you experience sunrise.
+
+                    When it rotates away from sunlight,
+                    you experience sunset.
+
+                </p>
+
+            </div>
+
+        </section>
+
+<!-- =========================================
+     PROJECT NOTES
+========================================= -->
+
+<section class="notes-section" id="notes">
+
+    <div class="section-header">
+
+        <span class="section-badge">
+            📚 PROJECT NOTES
+        </span>
+
+        <h2 class="section-title">
+            Notes About Sunrise & Sunset
+        </h2>
+
+        <p class="section-subtitle">
+            Simple scientific notes to understand
+            how Earth, the Sun and rotation create
+            day and night.
+        </p>
+
+    </div>
+
+
+    <div class="notes-grid">
+
+        <!-- NOTE 1 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                🌍
+            </div>
+
+            <h3>Earth's Rotation</h3>
+
+            <p>
+                Earth continuously rotates around
+                its own axis. One complete rotation
+                takes approximately 24 hours.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 2 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                ☀️
+            </div>
+
+            <h3>Sunlight</h3>
+
+            <p>
+                The Sun provides the light that
+                illuminates Earth. At any moment,
+                approximately one half of Earth is
+                facing the Sun.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 3 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                🌅
+            </div>
+
+            <h3>Why Sunrise Happens</h3>
+
+            <p>
+                As Earth rotates, a location moves
+                from the dark side toward the
+                Sun-facing side. This creates
+                sunrise.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 4 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                🌇
+            </div>
+
+            <h3>Why Sunset Happens</h3>
+
+            <p>
+                As Earth continues rotating, a
+                location moves away from the
+                Sun-facing side. This creates
+                sunset.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 5 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                🧭
+            </div>
+
+            <h3>Earth Rotates West to East</h3>
+
+            <p>
+                Earth rotates from west to east.
+                This rotation is why the Sun appears
+                to rise in the east and set in the
+                west.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 6 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                📍
+            </div>
+
+            <h3>Location Matters</h3>
+
+            <p>
+                Sunrise and sunset times are
+                different for different locations
+                because latitude, longitude and
+                date affect the Sun's position.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 7 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                📅
+            </div>
+
+            <h3>Date Matters</h3>
+
+            <p>
+                Sunrise and sunset times change
+                throughout the year because Earth's
+                axis is tilted and Earth moves around
+                the Sun.
+            </p>
+
+        </article>
+
+
+        <!-- NOTE 8 -->
+
+        <article class="note-card">
+
+            <div class="note-icon">
+                🔬
+            </div>
+
+            <h3>What SunRiseX Demonstrates</h3>
+
+            <p>
+                SunRiseX combines real solar data
+                with a 3D Earth simulation to make
+                the science of sunrise and sunset
+                easier to understand.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+        <!-- =========================================
+             LIVE INFORMATION SECTION
+        ========================================== -->
+
+        <section class="live-section section">
+
+            <div class="section-heading">
+
+                <span>
+                    ⚡ LIVE INFORMATION
+                </span>
+
+                <h2>
+                    Solar Information
+                </h2>
+
+            </div>
+
+
+            <div class="live-grid">
+
+
+                <div class="live-card">
+
+                    <span>
+                        📍 Latitude
+                    </span>
+
+                    <strong id="latitude">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="live-card">
+
+                    <span>
+                        📍 Longitude
+                    </span>
+
+                    <strong id="longitude">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="live-card">
+
+                    <span>
+                        🕐 Local Time
+                    </span>
+
+                    <strong id="localTime">
+                        --:--
+                    </strong>
+
+                </div>
+
+
+                <div class="live-card">
+
+                    <span>
+                        🌗 Day/Night
+                    </span>
+
+                    <strong id="liveDayNight">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             ABOUT SECTION
+        ========================================== -->
+
+        <section
+            class="about-section section"
+            id="about"
+        >
+
+            <div class="about-content">
+
+                <span>
+                    ☀️ ABOUT SUNRISEX
+                </span>
+
+                <h2>
+                    Understand Our Changing Sky
+                </h2>
+
+                <p>
+
+                    SunRiseX is an interactive educational
+                    project that combines real-time solar
+                    data, geolocation and 3D visualization
+                    to explain the science behind sunrise,
+                    sunset, day and night.
+
+                </p>
+
+
+                <div class="technology-list">
+
+                    <span>HTML</span>
+
+                    <span>CSS</span>
+
+                    <span>JavaScript</span>
+
+                    <span>Three.js</span>
+
+                    <span>Geolocation API</span>
+
+                    <span>Sunrise/Sunset API</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+        <span id="currentYear"></span>
+
+        <div class="footer-logo">
+            ☀️ SunRiseX
+        </div>
+
+        <p>
+            Real-Time Sunrise & Sunset Simulator
+        </p>
+
+        <p class="copyright">
+            © 2026 SunRiseX. Educational Project.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <!-- Three.js -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
+    </script>
+
+
+    <!-- Main JavaScript -->
+    <script sr="solarSystemBackground.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="api.js"></script>
+
+    <script src="location.js"></script>
+
+    <script src="sunrise.js"></script>
+
+    <script src="earth.js"></script>
+
+    <script src="animation.js"></script>
+
+    <script src="ui.js"></script>
+
+</body>
+
+</html>
